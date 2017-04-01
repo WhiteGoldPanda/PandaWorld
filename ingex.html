@@ -4,7 +4,8 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<title>Panda world</title>
+	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/main.css">
@@ -26,7 +27,7 @@
 					<a class="nav-item nav-link" href="#" >Home</a> 
 					<a class="nav-item nav-link" href="#" >Mail</a>
 					<a class="nav-item nav-link" href="#" >About</a>
-					<a class="nav-item nav-link" href="about panda/index.html" >Panda world</a>
+					<a class="nav-item nav-link" href="pandaworld.html" >Panda world</a>
 				</div>
 			</div>
 		</div>
@@ -206,7 +207,7 @@
 
 	<div class="container text-muted text-center" style="margin-top: 50px; "> 
 
-		<form id="contact-form" method="post"  role="form">
+		<form id="contact-form" method="post"  >
 
 			<div class="messages"></div>
 
@@ -219,15 +220,15 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="form_name">Firstname</label>
-							<input id="form_name" type="text" name="name" class="form-control" placeholder="Enter your firstname *" required="required" data-error="Firstname is required.">
-							<div class="help-block with-errors"></div>
+							<input id="form_name" type="text" name="name" class="form-control" placeholder="Enter your firstname *" onkeyup="validateName()" >
+							<span class='error-message' id='name-error'></span>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="form_lastname">Lastname</label>
-							<input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Enter your lastname " required="required" data-error="Lastname is required.">
-							<div class="help-block with-errors"></div>
+							<input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Enter your lastname "  onkeyup="validatelastname()">
+							<span class='error-message' id='lastname-error'></span>
 						</div>
 					</div>
 				</div>
@@ -235,15 +236,15 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="form_email">Email</label>
-							<input id="form_email" type="email" name="email" class="form-control" placeholder="Enter your email *" required="required" data-error="Valid email is required.">
-							<div class="help-block with-errors"></div>
+							<input id="form_email" type="email" name="email" class="form-control" placeholder="Enter your email *"  onkeyup="validateEmail()">
+							<span class='error-message' id='email-error'></span>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="form_phone">Phone</label>
-							<input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Enter your phone!">
-							<div class="help-block with-errors"></div>
+							<input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Enter your phone!" onkeyup="validatePhone()">
+							<span class='error-message' id='phone-error'></span>
 						</div>
 					</div>
 				</div>
@@ -251,13 +252,15 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<label for="form_message">Message </label>
-							<textarea id="form_message" name="message" class="form-control" placeholder="Insert your message ....." rows="4" required="required" data-error="Please,leave  a message 4 pandas"></textarea>
-							<div class="help-block with-errors"></div>
+							<textarea id="form_message" name="message" class="form-control" placeholder="Insert your message ....." rows="4"  onkeyup="validateMessage()" ></textarea>
+							<span class='error-message' id='message-error'></span>
 						</div>
 					</div>
 					<div class="col-md-12">
-						<input type="submit" class="btn btn-success btn-send" value="Send message">
+						<input type="submit" onclick='return validateForm()' class="btn btn-success btn-send" value="Send message">
+						<span class='error-message' id='submit-error'></span>
 					</div>
+
 				</div>
 				
 			</div>
@@ -272,7 +275,7 @@
 
 
 			<h2 class="display-1 text-white">Some panda info  </h2>
-			<p class="lead">
+			<p class="lead"></p>
 				<!--buttonmodal-->
 				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong" style="margin-top: 20px;">
 					About autor
@@ -301,12 +304,12 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-
-							</div>
+							
 						</div>
 					</div>
 				</div>
-			</p>
+			</div>
+			
 			<!--end button-->
 		</div>
 	</div>
@@ -315,6 +318,7 @@
 
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="js/forms.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	<script>
